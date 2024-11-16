@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Enums\Enums\AuthFormCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,10 +13,9 @@ class PageController extends Controller
         return view('welcome');
     }
 
-    public function authForms($params) {
-        Log::info('params-auth-forms-page', ['value' => $params]);
+    public function authForms(AuthFormCategory $params) {
         return view('auth-forms', [
-            'params' => $params,
+            'params' => $params->value,
         ]);
     }
 }
