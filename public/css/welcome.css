@@ -1,0 +1,53 @@
+.welcome__wrapper {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+
+    background-color: #f3f7f7;
+    background-image: url('../images/fon-welcome.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.welcome__window-login {
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid darkgray;
+    background: #d1eeee;
+    box-shadow: 3px 3px 5px #726f6f;
+}
+
+.welcome__wr-title h2 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.welcome__choice {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login__wrapper, .register__wrapper {
+    display: flex;
+    height: 50px;
+    width: 200px;
+    justify-content: center;
+
+    border: 1px solid #726f6f;
+}
+
+.login__wrapper > a, .register__wrapper > a {
+    display: grid;
+    width: 100%;
+    place-items: center;
+
+    font-family: 'Nunito', Arial;
+    font-size: 15px;
+    font-weight: 400;
+}

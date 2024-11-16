@@ -1,0 +1,75 @@
+.auth-forms__wrapper {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+}
+
+.auth-form__wr-form {
+    min-width: 400px;
+    padding: 30px;
+
+    border: 1px solid darkgray;
+    background: #d1eeee;
+    box-shadow: 3px 3px 5px #726f6f;
+}
+
+.auth-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.auth-form__input {
+    width: 100%;
+    padding-left: 4px;
+}
+
+.auth-form__input:focus::placeholder {
+    visibility: hidden;
+}
+
+.auth-form__wr-input-pass {
+    position: relative;
+}
+
+.auth-form__show-pass {
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    height: 90%;
+    width: 18px;
+
+    background: no-repeat url(../images/show-pass-icon.png);
+    background-position: center;
+    background-size: contain;
+
+    transform: translate(-20%, -45%);
+
+    cursor: pointer;
+}
+
+.auth-form__label-file {
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.auth-form__wr-recover {
+    margin-top: 5px;
+}
+
+.auth-form__link:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.auth-form__wr-remember {
+    margin-top: 3px;
+}
+
+.auth-form__remember-me-label {
+    cursor: pointer;
+}
