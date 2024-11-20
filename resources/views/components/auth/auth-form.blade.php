@@ -41,9 +41,6 @@
             <div class="auth-form__wr-input">
                 <input class="auth-form__input" type="tel" name="phone" placeholder="Телефон">
             </div>
-            <div class="auth-form__wr-input">
-                <input class="auth-form__input" type="text" name="login" placeholder="Логин">
-            </div>
             <div class="auth-form__wr-input auth-form__wr-input-pass">
                 <label>
                     <input class="auth-form__input" type="password" name="password" placeholder="Пароль" required>
