@@ -30,20 +30,22 @@
         <form class="auth-form__form" action="/register" method="POST" name="register-form" enctype="multipart/form-data">
             @csrf
             <div class="auth-form__wr-input">
-                <input class="auth-form__input" type="text" name="name" placeholder="Ваше имя">
+                <span class="form-error">@if($errors->has('name')) {{$errors->first('name')}} @endif</span>
+                <input class="auth-form__input" type="text" name="name" value="{{ old('name') }}" placeholder="Ваше имя">
             </div>
             <div class="auth-form__wr-input">
-                <input class="auth-form__input" type="text" name="patronymic" placeholder="Ваше отчество">
+                <input class="auth-form__input" type="text" name="patronymic" value="{{ old('patronymic') }}" placeholder="Ваше отчество">
             </div>
             <div class="auth-form__wr-input">
-                <input class="auth-form__input" type="email" name="email" placeholder="Ваша почта" required>
+                <span class="form-error">@if($errors->has('email')) {{$errors->first('email')}}@endif</span>
+                <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша почта">
             </div>
             <div class="auth-form__wr-input">
-                <input class="auth-form__input" type="tel" name="phone" placeholder="Телефон">
+                <input class="auth-form__input" type="tel" name="phone" value="{{ old('phone') }}" placeholder="Телефон">
             </div>
             <div class="auth-form__wr-input auth-form__wr-input-pass">
                 <label>
-                    <input class="auth-form__input" type="password" name="password" placeholder="Пароль" required>
+                    <input class="auth-form__input" type="password" name="password" placeholder="Пароль">
                     <span class="auth-form__show-pass"></span>
                 </label>
             </div>

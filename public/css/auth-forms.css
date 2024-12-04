@@ -24,6 +24,10 @@
     gap: 7px;
 }
 
+.form-error {
+    color: rgb(240, 145, 145);
+}
+
 .auth-form__input {
     width: 100%;
     padding-left: 4px;

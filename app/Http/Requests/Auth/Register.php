@@ -26,12 +26,37 @@ class Register extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:50',
-            'patronymic' => 'required|string|max:50',
-            'email' => 'required|string|email|max:100|exists:users,email',
-            'phone' => 'required|string|max:20',
-            'password' => ['required', 'string', Password::min(8)->max(50)->letters()->mixedCase()->numbers()->symbols()],
-            'avatar' => 'required|file|image|max:4000',
+            'name' => 'bail|required|string|max:50',
+            'patronymic' => 'bail|required|string|max:50',
+            'email' => 'bail|required|string|email|max:100|exists:users,email',
+            'phone' => 'bail|required|string|max:20',
+            'password' => ['bail', 'required', 'string', Password::min(8)->max(50)->letters()->mixedCase()->numbers()->symbols()],
+            'avatar' => 'bail|required|file|image|max:4000',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Поле :attribute обязательно для заполнения',
+            'string' => 'Для ввода :attribute доступен только текст',
+            'name.max' => 'Максимальное количество символов для :attribute 50',
+            'patronymic.max' => 'Максимальное количество символов для :attribute 50',
+            'email.max' => 'Максимальное количество символов для :attribute 100',
+            'phone.max' => 'Максимальное количество символов для :attribute 20',
+            'email.email' => 'Не корректный email',
+            'email.exists:users,email' => 'такой адрес уже зарегистрирован',
+            'password.Password' => ':attribute не соответствует требованиям'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'имя',
+            'patronymic' => 'отчество',
+            'phone' => 'номер телефона',
+            'password' => 'пароль',
         ];
     }
 }
