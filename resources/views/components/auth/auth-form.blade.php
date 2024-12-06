@@ -34,6 +34,7 @@
                 <input class="auth-form__input" type="text" name="name" value="{{ old('name') }}" placeholder="Ваше имя">
             </div>
             <div class="auth-form__wr-input">
+                <span class="form-error">@if($errors->has('patronymic')) {{$errors->first('patronymic')}} @endif</span>
                 <input class="auth-form__input" type="text" name="patronymic" value="{{ old('patronymic') }}" placeholder="Ваше отчество">
             </div>
             <div class="auth-form__wr-input">
@@ -41,18 +42,23 @@
                 <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша почта">
             </div>
             <div class="auth-form__wr-input">
+                <span class="form-error">@if ($errors->has('phone')) {{$errors->first('phone')}}@endif</span>
                 <input class="auth-form__input" type="tel" name="phone" value="{{ old('phone') }}" placeholder="Телефон">
             </div>
             <div class="auth-form__wr-input auth-form__wr-input-pass">
                 <label>
-                    <input class="auth-form__input" type="password" name="password" placeholder="Пароль">
+                    <span class="form-error">@if($errors->has('password')) @foreach ($errors->get('password') as $item)
+                        {{$item}} <br>
+                    @endforeach @endif</span>
+                    <input class="auth-form__input" type="password" name="password" value="{{old('password')}}" placeholder="Пароль">
                     <span class="auth-form__show-pass"></span>
                 </label>
             </div>
             <div class="auth-form__wr-input">
+                <span  class="form-error">@if($errors->has('file')) {{$errors->first('file')}}@endif</span> <br>
                 <label class="auth-form__label-file">
-                    Выберите файл
-                    <input type="file" name="avatar">
+                    Выберите файл <br>
+                    <input type="file" name="file">
                 </label>
             </div>
             <div class="auth-form__wr-input">
