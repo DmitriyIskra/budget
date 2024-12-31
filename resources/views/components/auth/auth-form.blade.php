@@ -27,6 +27,7 @@
             </label>
         </div>
     @elseif($form === 'register')
+        {{dump($errors)}}
         <form class="auth-form__form" action="/register" method="POST" name="register-form" enctype="multipart/form-data">
             @csrf
             <div class="auth-form__wr-input">
@@ -39,7 +40,7 @@
             </div>
             <div class="auth-form__wr-input">
                 <span class="form-error">@if($errors->has('email')) {{$errors->first('email')}}@endif</span>
-                <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша почта">
+                <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша адреса">
             </div>
             <div class="auth-form__wr-input">
                 <span class="form-error">@if ($errors->has('phone')) {{$errors->first('phone')}}@endif</span>
@@ -76,7 +77,7 @@
             </div>
         </form>
     @elseif($form === 'new-pass')
-        <form class="auth-form__form" action="">
+        <form class="auth-form__form" action="/login">
             <div class="auth-form__wr-input auth-form__wr-input-pass">
                 <label>
                     <input class="auth-form__input" type="password" name="password" placeholder="Пароль" required>

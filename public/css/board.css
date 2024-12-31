@@ -1,0 +1,7 @@
+.board__full-name {
+    display: flex;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 700;
+}

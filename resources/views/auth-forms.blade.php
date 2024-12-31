@@ -8,7 +8,6 @@
     <title>{{ $params === 'login' ? 'Вход' : 'Регистрация' }}</title>
 </head>
 <body>
-    {{dump($errors)}}
     <div class="auth-forms__wrapper">
         <x-auth.auth-form form={{$params}} />
     </div>

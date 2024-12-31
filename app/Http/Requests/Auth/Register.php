@@ -3,7 +3,10 @@
 namespace App\Http\Requests\Auth;
 
 use App\Rules\Validation\EmaiRules;
+use App\Rules\Validation\UniqueEmail;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules\Password;
 
 
@@ -26,13 +29,14 @@ class Register extends FormRequest
      */
     public function rules(): array
     {
+        Log::info('qweqwe', ['wdqwd' => DB::connection()->getName()]);
         return [
             'name' => 'bail|required|string|max:50',
             'patronymic' => 'bail|required|string|max:50',
-            'email' => ['bail', 'required', 'string', new EmaiRules, 'max:100', 'exists:users,email'],
+            'email' => ['bail', 'required', 'string', new EmaiRules, 'max:100', new UniqueEmail], // , 
             'phone' => 'bail|required|string|max:20',
             'password' => ['bail', 'required', 'string', Password::min(8)->max(50)->letters()->mixedCase()->numbers()->symbols()], 
-            'file' => 'bail|required|file|image|max:1000',
+            'file' => 'bail|file|image|max:1000',
         ];
     }
 
@@ -45,8 +49,7 @@ class Register extends FormRequest
             'patronymic.max' => 'Максимальное количество символов для :attribute :max',
             'phone.max' => 'Максимальное количество символов для :attribute :max',
             'email.max' => 'Максимальное количество символов для :attribute :max',
-            'email.email.email' => 'Не корректный email адрес',
-            'email.email.exists' => 'такой адрес уже зарегистрирован',
+            'email.exists' => 'такой адрес уже зарегистрирован',
             'password.min' => ':attribute должен содержать минимум :min символов',
             'password.max' => ':attribute должен может максимум :max символов',
             'password.letters' => 'поле :attribute должно содержать хотя бы одну букву',
