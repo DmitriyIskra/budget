@@ -1,7 +1,60 @@
-.board__full-name {
-    display: flex;
+.header {
+    display: grid;
+    padding: 10px 40px;
+    grid-template-columns: repeat(3, max-content) 1fr repeat(2, max-content);
+    column-gap: 10px;
+    align-items: center;
+
+    background-color: #5A87BC;
+}
+
+.board__user-avatar {
+    height: 100px;
+    width: 100px;
+}
+
+.board__user-avatar::after {
+    content: 'avatar';
+
+    display: grid;
+    height: 100%;
+    width: 100%;
+
+    place-items: center;
+}
+
+.board__user-patronymic, .board__user-name {
+    display: inline-block;
 
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     font-weight: 700;
+}
+
+.board__balance {
+    grid-column: 5;
+}
+
+.board__balance > span {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.board__logout {
+    margin-left: 10px;
+    grid-column: 6;
+}
+
+.board__logout-link {
+    display: inline-block;
+    height: 30px;
+    width: 25px;
+}
+
+.board__logout-link img {
+    height: 100%;
+    width: 100%;
+    
+    object-fit: contain;
+    object-position: center;
 }

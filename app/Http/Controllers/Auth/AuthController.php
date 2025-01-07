@@ -2,41 +2,52 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Classes\AuthServiceClass as AuthService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\Register;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
+    public function __construct(private AuthService $authService)
+    {}
+
+    // PASSWORD dmitriyiskra@ Hdsjcb3!sc
     public function registration(Register $request) {
         $data = $request->validated();
-        Log::info('__VALIDATED__: ', $data);
 
-        if($data) {
-            $user = User::query()->create([
-                'name' => $data['name'],
-                'patronymic' => $data['patronymic'],
-                'phone' => $data['phone'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-                // 'avatar' => $data -> ,
-            ]);
+        if(!$data) return;
 
-            Auth::login($user);
+        
+        $this->authService->registration($data);
 
-            return to_route('board');
-        }
+        return to_route('board');
     }
 
     public function login(LoginRequest $request) {
         $data = $request->validated();
+
+        if(!$data) return;
+
+        if(Auth::attempt($data)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('board');
+        }
+
+        return back()->withErrors([
+            'no_valid' => 'Не правильный email или пароль'
+        ]);
     }
 
-    public function logout() {
+    public function logout(Request $request) {
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
+        return redirect('/');
     }
 }

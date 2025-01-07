@@ -12,8 +12,11 @@ Route::controller(PageController::class)->group(function() {
 Route::controller(AuthController::class)->group(function() {
     Route::post('/register', 'registration')->name('registration');
     Route::post('/login', 'login')->name('login');
+    Route::get('/logout', 'logout')->name('logout');
 });
 
+
+// AUTH
 Route::controller(PageController::class)->middleware('auth')->group(function() {
     Route::get('/board', 'board')->name('board');
 });

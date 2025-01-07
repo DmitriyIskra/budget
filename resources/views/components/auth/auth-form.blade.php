@@ -11,6 +11,9 @@
                     <span class="auth-form__show-pass"></span>
                 </label>
             </div>
+            <p class="form-error">@if ($errors->has('no_valid'))
+                {{ $errors->first('no_valid') }}
+            @endif</p>
             <div class="auth-form__wr-input">
                 <input type="submit">
             </div>
@@ -40,7 +43,7 @@
             </div>
             <div class="auth-form__wr-input">
                 <span class="form-error">@if($errors->has('email')) {{$errors->first('email')}}@endif</span>
-                <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша адреса">
+                <input class="auth-form__input" type="text" name="email" value="{{ old('email') }}" placeholder="Ваша адреса email">
             </div>
             <div class="auth-form__wr-input">
                 <span class="form-error">@if ($errors->has('phone')) {{$errors->first('phone')}}@endif</span>
