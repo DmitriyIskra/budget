@@ -32,7 +32,11 @@
 }
 
 .board__balance {
+    display: flex;
+    min-width: 150px;
     grid-column: 5;
+    justify-content: space-between;
+    align-items: end;
 }
 
 .board__balance > span {
@@ -57,4 +61,214 @@
     
     object-fit: contain;
     object-position: center;
+}
+
+.tabs__list {
+    display: flex;
+    width: 40%;
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+.tabs__item {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+    flex-grow: 1;
+
+    background-color: #d8d4d4;
+    border-top: 2px solid #111;
+    border-bottom: 2px solid #111;
+    border-left: 2px solid #111;
+
+    transform: skewX(-45deg);
+
+    transition: transform 0.15s ease;
+
+    cursor: pointer;
+}
+
+.tabs__item:hover {
+    z-index: 1;
+
+    background-color: #c7c6c6;
+    border: 2px solid #111;
+
+    transform: scale(1.05) skewX(-45deg);
+}
+
+.tabs__item_active {
+    background-color: #969595;
+    color: #fff;
+
+    pointer-events: none;
+}
+
+.tabs__item > p {
+    transform: skewX(45deg);
+}
+
+.tabs__item:last-child {
+    border-right: 2px solid #111;
+}
+
+.wr-income-expenses {
+    display: flex;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+
+.income {
+    width: 20%;
+    min-width: 196px;
+}
+
+.income__wr-select {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.income__select {
+    flex-grow: 1;
+}
+
+.income__select-button {
+    height: 25px;
+    width: 25px;
+
+    cursor: pointer;
+}
+
+.income__summ {
+    display: flex;
+    min-width: 95px;
+    margin-left: 10px;
+    justify-content: end;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.income__wr-look-all {
+    font-size: 10px;
+    color: #111;
+}
+
+.income__wr-contr-money {
+    display: flex;
+    justify-content: space-between;
+}
+
+.income__money-button {
+    width: 45%;
+
+    cursor: pointer;
+}
+
+
+.expenses {
+    width: 30%;
+    min-width: 394px;
+}
+
+.expenses__wr-select {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.expenses__select {
+    flex-grow: 1;
+}
+
+.expenses__wr-select-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.expenses__select-button {
+    height: 25px;
+    width: 25px;
+}
+
+.expenses__look-all {
+    font-size: 10px;
+    color: #111;
+}
+
+
+.record-keeping {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;
+}
+
+.table {
+    width: 30%;
+}
+
+.table-header {
+    display: flex;
+
+    border-bottom: 2px solid #111;
+}
+
+.table-header__item {
+    display: flex;
+    height: 30px;
+    align-items: center;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.table-header__name {
+    padding-left: 2px;
+    width: 88%;
+}
+
+.table-header__summ {
+    width: 12%;
+}
+
+.table__item {
+    position: relative;
+
+    display: flex;
+    height: 25px;
+    align-items: center;
+
+    border-bottom: 1px solid #111;
+}
+
+.table__item-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #111;
+}
+
+.table__name {
+    padding-left: 2px;
+    width: 88%;
+}
+
+.table__summ {
+    width: 12%;
+
+    font-weight: 700;
+}
+
+.table__wr-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
