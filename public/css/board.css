@@ -119,7 +119,6 @@
     padding-top: 25px;
     padding-left: 20px;
     padding-right: 20px;
-    justify-content: space-between;
 }
 
 .income {
@@ -174,6 +173,7 @@
 .expenses {
     width: 30%;
     min-width: 394px;
+    margin-left: 13%;
 }
 
 .expenses__wr-select {

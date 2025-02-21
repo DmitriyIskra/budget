@@ -6,15 +6,24 @@ dialog {
     width: 20%;
     min-height: 300px;
     padding: 10px 10px 25px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
+    
     border: 0;
     background-color: rgb(228, 241, 245);
 
     transform: translate(-50%, -50%);
+}
+
+.modal {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal__title {
+    text-align: center;
 }
 
 .change-summ::backdrop {
@@ -35,8 +44,8 @@ dialog {
 .dialog__form__wr-inputs {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     flex-grow: 1;
+    gap: 12px;
 }
 
 .dialog__label {

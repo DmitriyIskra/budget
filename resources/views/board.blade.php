@@ -95,11 +95,13 @@
                 </ul>
             </div>
         </div>
-
+        {{-- Добавление дохода --}}
     </main>
-
+    
     <dialog class="dialog change-summ" open>
-        <h3 class="change-summ__title">Изменить сумму</h3>
+        
+        <x-modals.income-add-form />
+        {{-- <h3 class="change-summ__title">Изменить сумму</h3>
         <form class="dialog__form change-summ__form" method="POST" action="">
             @csrf
             <div class="dialog__form__wr-inputs">
@@ -111,7 +113,10 @@
             <div class="dialog__wr-button">
                 <button class="dialog__button" type="submit">Сохранить</button>
             </div>
-        </div>
+        </div> --}}
     </dialog>
+
+    
+
 </body>
 </html>

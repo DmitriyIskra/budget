@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Modals\IncomeAdd\IncomeAddRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class IncomeItemsController extends Controller
 {
@@ -19,15 +22,21 @@ class IncomeItemsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(IncomeAddRequest $request)
     {
-        //
+        $data = $request->validated();
+        $user_id = Auth::user()->id;
+        Log::info('Данные получены при добавлении дохода');
+        Log::info('user_id', [$user_id]);
+        Log::info('request', [$data]);
+
+        return to_route('board');
     }
 
     /**

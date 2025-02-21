@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\IncomeItemsController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,10 @@ Route::controller(AuthController::class)->group(function() {
 // AUTH
 Route::controller(PageController::class)->middleware('auth')->group(function() {
     Route::get('/board', 'board')->name('board');
+});
+
+// MODALS
+
+Route::controller(IncomeItemsController::class)->group(function() {
+    Route::post('/income-add', 'store')->name('create_income');
 });

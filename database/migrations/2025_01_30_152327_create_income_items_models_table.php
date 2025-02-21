@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('income_items_models', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user-id')->unsigned();
-            $table->foreign('user-id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('name')->nullable();
             $table->decimal('summ', 8, 2)->default(0);
             $table->timestamps();
