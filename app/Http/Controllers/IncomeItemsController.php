@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Modals\IncomeAdd\IncomeAddRequest;
+use App\Models\IncomeItemsModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -35,6 +36,15 @@ class IncomeItemsController extends Controller
         Log::info('Данные получены при добавлении дохода');
         Log::info('user_id', [$user_id]);
         Log::info('request', [$data]);
+
+        if($data) {
+            // !!!! Добавить ошибки в модалку
+            IncomeItemsModel::query()->create([
+                'user_id' => $user_id,
+                'name' => $data['name'],
+                'summ' => $data['summ'],
+            ]);
+        }
 
         return to_route('board');
     }
