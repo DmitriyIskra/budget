@@ -106,4 +106,19 @@ php artisan lang:publish - опубликовать языковые файлы 
     php artisan storage:unlink - уничтожит сконфигурированные ссылки
     это нужно сделать в консоли хостинга
  с. обязательно добавляем в .gitignore
+ 
 4. клонируем содержимое репозитория на хостинг, в консоли git clone ... . - точка означает что клонируем в данную папку
+5. далее на хостинге с помощью composer.phar устанавливаем зависимости (папка vendor)
+   /opt/php82/bin/php composer.phar install
+6. конфигурируем символические ссылки
+   в консоли на хостинге php artisan storage:link - конфигурируем ссылки
+   в нашем случае /opt/php82/bin/php artisan storage:link
+
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY= может быть пустым, тогда /opt/php82/bin/php artisan key:generate
+LOG_CHANNEL=daily - чтобы каждый день создавался новый файл с логами, а не копилось все в одном файле
+DB_HOST=127.0.0.1 - для open server там нужно MySQL-8.2, соответственно меняем
+если в пароле есть разные символы лучше его записать в кавычках
+https://www.youtube.com/watch?v=yo3FqtA2J9c
+разобраться как делать деплой, новой версии
