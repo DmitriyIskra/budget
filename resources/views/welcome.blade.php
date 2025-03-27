@@ -12,7 +12,6 @@
         @endif
     </head>
     <body>
-        <h1>Hello Frend</h1>
         <div class="welcome__wrapper">
 
             <div class="welcome__window-login">
