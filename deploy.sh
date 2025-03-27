@@ -9,7 +9,7 @@ git pull origin main
 
 /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
 
-/opt/php82/bin/php artisan migrate # возможно понадобится --force потому что проект в продакшн
+/opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
 
 /opt/php82/bin/php artisan config:cache
 
