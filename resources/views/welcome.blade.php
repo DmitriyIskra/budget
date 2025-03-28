@@ -12,7 +12,7 @@
         @endif
     </head>
     <body>
-        <h1>Hello qw</h1>
+        <h1>Hello qw22</h1>
         <div class="welcome__wrapper">
 
             <div class="welcome__window-login">
