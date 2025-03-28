@@ -18,7 +18,7 @@ jobs: # задачи
           host: ${{ secrets.TIMEWEB_HOST }}
           username: ${{ secrets.TIMEWEB_USER_NAME }}
           key: ${{ secrets.TIMEWEB_PRIVATE_KEY }}
-          script: 
+          script: |
             echo 'Deploying'
             cd /home/c/cn01455/budget 
             set -e
