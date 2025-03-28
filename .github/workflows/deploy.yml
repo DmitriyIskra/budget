@@ -1,0 +1,52 @@
+name: Deploy Budget
+
+on: # на какие события запускать, какие ветки
+  push: # событие
+    branches: [ "main" ] # ветка
+  # pull_request:
+  #   branches: [ "main" ]
+
+jobs: # задачи
+  deploy:
+
+    runs-on: ubuntu-latest # операционная система на которой будем запускать (ubuntu разновидность linux, наиболе часто стоит на серверах)
+
+    steps:
+      - name: Deploy to server
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TIMEWEB_HOST }}
+          username: ${{ secrets.TIMEWEB_USER_NAME }}
+          key: ${{ secrets.TIMEWEB_PRIVATE_KEY }}
+
+          script:
+            cd /home/c/cn01455/budget # переходим в папку с сайтом (узнать путь: находясь в папке с сайтом в консоли pwd)
+            
+            set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
+
+          - name: Pull
+            run: git pull origin main
+
+          - name: Project down
+            run: /opt/php82/bin/php artisan down
+
+          - name: Install dependencies
+            run: /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
+
+          - name: Migrate
+            run: /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
+
+          - name: Config:cache
+            run: /opt/php82/bin/php artisan config:cache
+
+          - name: View:cache
+            run: /opt/php82/bin/php artisan view:cache
+
+          - name: Event:cache
+            run: /opt/php82/bin/php artisan event:cache
+
+          - name: Route:cache
+            run: /opt/php82/bin/php artisan route:cache
+
+          - name: Project up
+            run: /opt/php82/bin/php artisan up

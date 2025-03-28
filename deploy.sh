@@ -1,7 +1,9 @@
 #!/bin/bash
 
+
 set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
 
+echo "Deploying"
 
 git pull origin main
 
