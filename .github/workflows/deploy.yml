@@ -46,8 +46,8 @@ jobs: # задачи
       - name: Echo Deploy
         run: echo "Deploying"
 
-      - name: Open DIR Budget
-        run: /home/c/cn01455/budget
+      # - name: Open DIR Budget
+      #   run: /home/c/cn01455/budget
 
       - name: Pull
         run: git pull origin main
