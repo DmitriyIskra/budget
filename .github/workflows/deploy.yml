@@ -18,14 +18,14 @@ jobs: # задачи
           host: ${{ secrets.TIMEWEB_HOST }}
           username: ${{ secrets.TIMEWEB_USER_NAME }}
           key: ${{ secrets.TIMEWEB_PRIVATE_KEY }}
-          script: |
+          script: 
             echo 'Deploying'
             cd /home/c/cn01455/budget 
             set -e
             git pull origin main
             /opt/php82/bin/php artisan down
             /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
-            /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
+            /opt/php82/bin/php artisan migrate --force 
             /opt/php82/bin/php artisan config:cache
             /opt/php82/bin/php artisan view:cache
             /opt/php82/bin/php artisan event:cache
