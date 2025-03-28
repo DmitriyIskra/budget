@@ -5,12 +5,12 @@ use App\Http\Controllers\IncomeItemsController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(PageController::class)->group(function() {
+Route::controller(PageController::class)->middleware(['throttle:api'])->group(function() {
     Route::get('/', 'welcome')->name('welcome');
     Route::get('/form-auth/{params}', 'authForms')->name('auth-forms');
 });
 
-Route::controller(AuthController::class)->group(function() {
+Route::controller(AuthController::class)->middleware(['throttle:api'])->group(function() {
     Route::post('/register', 'registration')->name('registration');
     Route::post('/login', 'login')->name('login');
     Route::get('/logout', 'logout')->name('logout');
@@ -18,12 +18,12 @@ Route::controller(AuthController::class)->group(function() {
 
 
 // AUTH
-Route::controller(PageController::class)->middleware('auth')->group(function() {
+Route::controller(PageController::class)->middleware(['throttle:api'])->middleware('auth')->group(function() {
     Route::get('/board', 'board')->name('board');
 });
 
 // MODALS
 
-Route::controller(IncomeItemsController::class)->group(function() {
+Route::controller(IncomeItemsController::class)->middleware(['throttle:api'])->group(function() {
     Route::post('/income-add', 'store')->name('create_income');
 });
