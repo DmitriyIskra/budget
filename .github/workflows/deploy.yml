@@ -18,6 +18,7 @@ jobs: # задачи
           host: ${{ secrets.TIMEWEB_HOST }}
           username: ${{ secrets.TIMEWEB_USER_NAME }}
           key: ${{ secrets.TIMEWEB_PRIVATE_KEY }}
+          script: cd /home/c/cn01455/budget
 
           # script:
             # cd /home/c/cn01455/budget # переходим в папку с сайтом (узнать путь: находясь в папке с сайтом в консоли pwd)
