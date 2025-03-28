@@ -45,6 +45,9 @@ jobs: # задачи
       - name: Echo Deploy
         run: echo "Deploying"
 
+      - name: ls
+        run: ls
+
       - name: Open DIR
         run: cd budget
 
