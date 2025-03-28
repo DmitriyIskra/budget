@@ -14,7 +14,7 @@ jobs: # задачи
     steps:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
-        with: 
+        env: 
           host: ${{ secrets.TIMEWEB_HOST }}
           username: ${{ secrets.TIMEWEB_USER_NAME }}
           key: ${{ secrets.TIMEWEB_PRIVATE_KEY }}
