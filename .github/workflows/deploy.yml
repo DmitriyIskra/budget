@@ -42,9 +42,11 @@ jobs: # задачи
 
             # /opt/php82/bin/php artisan up
 
+      - name: Echo Deploy
+        run: echo "Deploying"
 
       - name: Open DIR
-        run: cd /home/c/cn01455/budget
+        run: cd budget
 
       - name: Pull
         run: git pull origin main
