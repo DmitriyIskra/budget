@@ -22,38 +22,38 @@ jobs: # задачи
           script:
             cd /home/c/cn01455/budget # переходим в папку с сайтом (узнать путь: находясь в папке с сайтом в консоли pwd)
             
-            # set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
+            set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
 
-            # git pull origin main
+            git pull origin main
 
-            # /opt/php82/bin/php artisan up
+            /opt/php82/bin/php artisan up
 
-            # - name: Pull
-            #   run: git pull origin main
+            - name: Pull
+              run: git pull origin main
 
-            # - name: Project down
-            #   run: /opt/php82/bin/php artisan down
+            - name: Project down
+              run: /opt/php82/bin/php artisan down
 
-            # - name: Install dependencies
-            #   run: /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
+            - name: Install dependencies
+              run: /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
 
-            # - name: Migrate
-            #   run: /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
+            - name: Migrate
+              run: /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
 
-            # - name: Config:cache
-            #   run: /opt/php82/bin/php artisan config:cache
+            - name: Config:cache
+              run: /opt/php82/bin/php artisan config:cache
 
-            # - name: View:cache
-            #   run: /opt/php82/bin/php artisan view:cache
+            - name: View:cache
+              run: /opt/php82/bin/php artisan view:cache
 
-            # - name: Event:cache
-            #   run: /opt/php82/bin/php artisan event:cache
+            - name: Event:cache
+              run: /opt/php82/bin/php artisan event:cache
 
-            # - name: Route:cache
-            #   run: /opt/php82/bin/php artisan route:cache
+            - name: Route:cache
+              run: /opt/php82/bin/php artisan route:cache
 
-            # - name: Project up
-            #   run: /opt/php82/bin/php artisan up
+            - name: Project up
+              run: /opt/php82/bin/php artisan up
 
 
           #   /opt/php82/bin/php artisan down
