@@ -24,7 +24,7 @@ jobs: # задачи
             
             # set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
 
-            # git pull origin main
+            git pull origin main
 
             # /opt/php82/bin/php artisan down
 
