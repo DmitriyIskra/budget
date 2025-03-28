@@ -24,29 +24,54 @@ jobs: # задачи
             
             set -e # если один из запущенных процессов закончится ошибкой скрипт прекратит свою работу
 
-            - name: Pull
-              run: git pull origin main
+            git pull origin main
 
-            - name: Project down
-              run: /opt/php82/bin/php artisan down
 
-            - name: Install dependencies
-              run: /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
+            /opt/php82/bin/php artisan down
 
-            - name: Migrate
-              run: /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
 
-            - name: Config:cache
-              run: /opt/php82/bin/php artisan config:cache
+            /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
 
-            - name: View:cache
-              run: /opt/php82/bin/php artisan view:cache
 
-            - name: Event:cache
-              run: /opt/php82/bin/php artisan event:cache
+            /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
 
-            - name: Route:cache
-              run: /opt/php82/bin/php artisan route:cache
 
-            - name: Project up
-              run: /opt/php82/bin/php artisan up
+            /opt/php82/bin/php artisan config:cache
+
+
+            /opt/php82/bin/php artisan view:cache
+
+
+            /opt/php82/bin/php artisan event:cache
+
+
+            /opt/php82/bin/php artisan route:cache
+
+
+            /opt/php82/bin/php artisan up
+            # - name: Pull
+            #   run: git pull origin main
+
+            # - name: Project down
+            #   run: /opt/php82/bin/php artisan down
+
+            # - name: Install dependencies
+            #   run: /opt/php82/bin/php composer.phar install --no-dev --optimize-autoloader
+
+            # - name: Migrate
+            #   run: /opt/php82/bin/php artisan migrate --force # возможно понадобится --force потому что проект в продакшн
+
+            # - name: Config:cache
+            #   run: /opt/php82/bin/php artisan config:cache
+
+            # - name: View:cache
+            #   run: /opt/php82/bin/php artisan view:cache
+
+            # - name: Event:cache
+            #   run: /opt/php82/bin/php artisan event:cache
+
+            # - name: Route:cache
+            #   run: /opt/php82/bin/php artisan route:cache
+
+            # - name: Project up
+            #   run: /opt/php82/bin/php artisan up
