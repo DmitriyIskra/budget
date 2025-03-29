@@ -18,7 +18,7 @@ Route::controller(AuthController::class)->middleware(['throttle:api'])->group(fu
 
 
 // AUTH
-Route::controller(PageController::class)->middleware(['throttle:api'])->middleware('auth')->group(function() {
+Route::controller(PageController::class)->middleware(['throttle:api', 'auth'])->group(function() {
     Route::get('/board', 'board')->name('board');
 });
 
