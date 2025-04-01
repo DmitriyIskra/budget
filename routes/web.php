@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CountingController;
 use App\Http\Controllers\IncomeItemsController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,4 @@ Route::controller(PageController::class)->middleware(['throttle:api', 'auth'])->
 Route::controller(IncomeItemsController::class)->middleware(['throttle:api'])->group(function() {
     Route::post('/income-add', 'store')->name('create_income');
 });
+
