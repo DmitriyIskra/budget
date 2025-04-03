@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Modals\IncomeAdd\IncomeAddRequest;
 use App\Models\IncomeItemsModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -25,7 +26,7 @@ class IncomeItemsController extends Controller
     {
         
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      */
@@ -33,13 +34,10 @@ class IncomeItemsController extends Controller
     {
         $data = $request->validated();
         $user_id = Auth::user()->id;
-        Log::info('Данные получены при добавлении дохода');
-        Log::info('user_id', [$user_id]);
-        Log::info('request', [$data]);
 
         if($data) {
             // !!!! Добавить ошибки в модалку
-            IncomeItemsModel::query()->create([
+            $incomeItem = IncomeItemsModel::query()->create([
                 'user_id' => $user_id,
                 'name' => $data['name'],
                 'summ' => $data['summ'],

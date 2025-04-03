@@ -2,7 +2,6 @@ dialog {
     top: 50%;
     left: 50%;
 
-    display: flex;
     width: 20%;
     min-height: 300px;
     padding: 10px 10px 25px;
@@ -11,6 +10,10 @@ dialog {
     background-color: rgb(228, 241, 245);
 
     transform: translate(-50%, -50%);
+}
+
+dialog[open] {
+    display: flex;
 }
 
 .modal {
@@ -22,11 +25,19 @@ dialog {
     gap: 10px;
 }
 
+.dialog__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    cursor: pointer;
+}
+
 .modal__title {
     text-align: center;
 }
 
-.change-summ::backdrop {
+.dialog::backdrop {
     display: grid;
     place-items: center;
 
@@ -55,6 +66,7 @@ dialog {
 
 .dialog__input-text {
     width: 100%;
+    padding-left: 3px;
 
     border: 0;
     outline: 0;

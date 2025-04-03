@@ -25,8 +25,18 @@ class PageController extends Controller
             $user = Auth::user();
         }
 
+        $incomeMoney = $user->incomeItems;
+        
+        $incomeMoneyTotal = 0;
+        foreach($incomeMoney as $item)
+        {
+            $incomeMoneyTotal += (float)$item['summ'];
+        }
+        
         return view('board', [
             'user' =>$user,
+            'incomeMoney' => $incomeMoney,
+            'incomeMoneyTotal' => $incomeMoneyTotal,
         ]);
     }
 }

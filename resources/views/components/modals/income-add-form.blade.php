@@ -1,5 +1,6 @@
 
 <div class="modal income-add">
+    <div class="dialog__close">X</div>
     <h3 class="modal__title">Добавить доход</h3>
     <form class="dialog__form change-summ__form" action="/income-add" method="POST" name="income-add-form">
         @csrf

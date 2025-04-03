@@ -34,12 +34,13 @@
 .board__balance {
     display: flex;
     min-width: 150px;
+    gap: 2px;
     grid-column: 5;
     justify-content: space-between;
     align-items: end;
 }
 
-.board__balance > span {
+.board__balance > span:first-child {
     font-size: 18px;
     font-weight: 800;
 }
